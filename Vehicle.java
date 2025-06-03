@@ -1,69 +1,48 @@
-// Vehicle.java
-// Parent class Vehicle
-
-// Declare the abstract class Vehicle
 public abstract class Vehicle {
     
-    // Private instance variable for the make of the vehicle
     private String make;
-    
-    // Private instance variable for the model of the vehicle
     private String model;
-    
-    // Private instance variable for the year of the vehicle
     private int year;
-    
-    // Private instance variable for the fuel type of the vehicle
     private String fuelType;
-    
-    // Private instance variable for the fuel efficiency of the vehicle
     private double fuelEfficiency;
+    private double fuel;
 
-    // Constructor for the Vehicle class, taking make, model, year, fuel type, and fuel efficiency as parameters
-    public Vehicle(String make, String model, int year, String fuelType, double fuelEfficiency) {
-        // Initialize the make instance variable
+    public Vehicle(String make, String model, int year, String fuelType, double fuelEfficiency, double fuel) {
         this.make = make;
-        // Initialize the model instance variable
         this.model = model;
-        // Initialize the year instance variable
         this.year = year;
-        // Initialize the fuelType instance variable
         this.fuelType = fuelType;
-        // Initialize the fuelEfficiency instance variable
         this.fuelEfficiency = fuelEfficiency;
-    }
-    
-    // Public method to get the make of the vehicle
-    public String getMake() {
-        return make;
+        this.fuel = fuel; 
     }
 
-    // Public method to get the model of the vehicle
-    public String getModel() {
-        return model;
+    public String getMake() { return make; }
+    public String getModel() { return model; }
+    public int getYear() { return year; }
+    public String getFuelType() { return fuelType; }
+    public double getFuelEfficiency() { return fuelEfficiency; }
+    public double getFuel() { return fuel; }
+
+    public void refuel(double amount) {
+        if (amount > 0) {
+            fuel += amount;
+            System.out.println(model + " refueled: " + amount + " L. Current fuel: " + fuel + " L.");
+        } else {
+            System.out.println("Invalid fuel amount.");
+        }
     }
 
-    // Public method to get the year of the vehicle
-    public int getYear() {
-        return year;
+    public void drive(double distance) {
+        double fuelNeeded = distance / fuelEfficiency;
+        if (fuel >= fuelNeeded) {
+            fuel -= fuelNeeded;
+            System.out.println(model + " drove " + distance + " km. Fuel left: " + fuel + " L.");
+        } else {
+            System.out.println("Not enough fuel to drive " + distance + " km.");
+        }
     }
 
-    // Public method to get the fuel type of the vehicle
-    public String getFuelType() {
-        return fuelType;
-    }
-
-    // Public method to get the fuel efficiency of the vehicle
-    public double getFuelEfficiency() {
-        return fuelEfficiency;
-    }
-
-    // Abstract method to calculate the fuel efficiency, to be implemented by subclasses
     public abstract double calculateFuelEfficiency();
-
-    // Abstract method to calculate the distance traveled, to be implemented by subclasses
     public abstract double calculateDistanceTraveled();
-
-    // Abstract method to get the maximum speed, to be implemented by subclasses
     public abstract double getMaxSpeed();
 }
