@@ -36,3 +36,9 @@
 ### Beecrowd-ийн амжилтын screenshot
 
 ![garalt3](https://github.com/user-attachments/assets/cba8afdc-0bde-4491-9fa3-be9849c388cc)
+
+
+
+## Orgotgoson Vehicle ur dun
+
+![Screenshot 2025-06-03 142814](https://github.com/user-attachments/assets/c2a6e08d-b4d8-408c-8c8a-9caf34294f2a)
